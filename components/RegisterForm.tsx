@@ -42,11 +42,11 @@ const RegisterForm = () => {
     <div className='bg-[#000] text-white  p-4'>
       <div className='flex justify-center p-2'>
         <Image
-          src='/images/logo.png'
+          src='/images/store.svg'
           alt='logo'
-          width={80}
-          height={80}
-          className='w-[60px] h-[60px] '
+          width={60}
+          height={60}
+          className='w-[40px] h-[40px] '
         />
       </div>
       <form
