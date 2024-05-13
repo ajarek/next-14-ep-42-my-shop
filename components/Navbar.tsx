@@ -8,25 +8,24 @@ import Link from 'next/link'
 const Navbar = async () => {
   const session = await auth()
   return (
-    <div className='h-16 w-full  flex justify-between items-center gap-4 px-8 '>
-      
-      
-      <Links />
-      <div className='flex justify-between items-center italic gap-6 ml-6'>
-        <Logout session={session} />
+    <div className='h-16 w-full  flex justify-between items-center gap-4 px-8 max-sm:px-2  '>
+      <div className='flex'>
+        <Links />
         {session && (
-        <Link
-        href='/dashboard'
-        className={`flex items-center gap-4 hover:bg-primary hover:text-primary-foreground hover:rounded-sm  rounded-sm px-4 py-1 transition `}
-      >
-        Dashboard
-      </Link>
-      )}
-        <ModeToggle />
+          <Link
+            href='/dashboard'
+            className={`flex items-center justify-start gap-4 hover:bg-primary hover:text-primary-foreground hover:rounded-sm  rounded-sm px-4 py-1 transition`}
+          >
+            Dashboard
+          </Link>
+        )}
       </div>
-      
-      <div className='"w-full max-w-[264px] lg:hidden'>
-        <MobileNav />
+      <div className=' flex justify-between items-center italic gap-6  '>
+        <Logout session={session} />
+        <ModeToggle />
+        <div className='w-full max-w-[264px] lg:hidden'>
+          <MobileNav />
+        </div>
       </div>
     </div>
   )

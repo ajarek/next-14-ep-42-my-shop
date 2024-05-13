@@ -73,4 +73,8 @@
     body {
       @apply bg-background text-foreground;
     }
+    .active{
+      @apply bg-primary text-primary-foreground
+    }
   }
+  

@@ -13,6 +13,7 @@ import {
 import { usePathname } from 'next/navigation'
 import Image from 'next/image'
 import Categories from './Categories'
+import LinkCart from './LinkCart'
 
 const MobileNav = () => {
   const pathname = usePathname()
@@ -27,7 +28,7 @@ const MobileNav = () => {
       >
         <SheetHeader>
           <Link
-            href='/dashboard'
+            href='/'
             className='flex items-center gap-2 max-sm-gap-1'
           >
             <Image
@@ -40,24 +41,13 @@ const MobileNav = () => {
           </Link>
         </SheetHeader>
         <SheetClose asChild>
-          <div className='flex h-full flex-col gap-6 pt-16 '>
-            <SheetClose asChild>
-             
-            </SheetClose>
-            <SheetClose asChild>
-              <Link
-                href='/'
-                className={`flex items-center gap-4 hover:bg-primary hover:text-primary-foreground hover:rounded-sm  rounded-sm px-4 py-2 transition ${
-                  pathname === '/analyzes' ? 'active ' : 'px-4'
-                }`}
-              >
-                Home
-              </Link>
-            </SheetClose>
+          <div className='flex h-full flex-col gap-6 pt-8 '>
+            <SheetClose asChild></SheetClose>
+            <SheetClose asChild></SheetClose>
             <SheetClose asChild>
               <Link
                 href='/products'
-                className={`flex items-center gap-4 hover:bg-primary hover:text-primary-foreground hover:rounded-sm  rounded-sm px-4 py-2 transition ${
+                className={`flex items-center gap-4 hover:bg-primary hover:text-primary-foreground hover:rounded-sm  rounded-sm px-4 py-1 transition ${
                   pathname === '/data-sheet' ? 'active ' : 'px-4'
                 }`}
               >
@@ -65,9 +55,12 @@ const MobileNav = () => {
               </Link>
             </SheetClose>
             <SheetClose asChild>
-              <div className='px-4'>
-              <Categories/>
+              <div className=''>
+                <Categories />
               </div>
+            </SheetClose>
+            <SheetClose asChild>
+              <LinkCart />
             </SheetClose>
           </div>
         </SheetClose>
