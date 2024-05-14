@@ -1,6 +1,11 @@
-import React from 'react'
+import { auth } from '@/app/api/auth/auth'
+import { redirect } from 'next/navigation'
 
-const Analize = () => {
+const Analize = async() => {
+  const session = await auth()
+  if (!session) {
+    redirect('/')
+  }
   return (
     <div>Analize</div>
   )

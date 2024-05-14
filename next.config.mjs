@@ -34,7 +34,7 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname:"media.istockphoto.com",
+        hostname:"img.myloview.com",
         port: '',
        
       },

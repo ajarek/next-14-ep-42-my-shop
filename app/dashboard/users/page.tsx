@@ -1,9 +1,77 @@
-import React from 'react'
+import { auth } from '@/app/api/auth/auth'
+import { redirect } from 'next/navigation'
+import connectToDb from '@/lib/connectToDb'
+import { User } from '@/lib/models'
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components/ui/table'
+import Image from 'next/image'
+import Link from 'next/link'
 
-const Users = () => {
+const Dashboard = async () => {
+  const session = await auth()
+  if (!session) {
+    redirect('/')
+  }
+  await connectToDb()
+  const users = await User.find({})
   return (
-    <div>Users</div>
+    <div className='w-full flex flex-col gap-4  '>
+      <h1 className='text-2xl'>Get users</h1>
+      <Table>
+        <TableCaption>List of your latest users.</TableCaption>
+        <TableHeader>
+          <TableRow>
+            <TableHead className='w-[100px]'>Image</TableHead>
+            <TableHead>Name</TableHead>
+            <TableHead className='text-left'>Email</TableHead>
+            <TableHead className='text-center'>Is Admin</TableHead>
+            <TableHead className='text-center'>Action</TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          {users.map((user) => (
+            <TableRow key={user._id}>
+              <TableCell className=''>
+                <Image
+                  src={user.img || 'https://img.myloview.com/posters/default-avatar-profile-icon-vector-social-media-user-photo-700-205577532.jpg'}
+                  width={30}
+                  height={30}
+                  alt='logo'
+                  className='rounded-full'
+                />
+              </TableCell>
+              <TableCell>{user.username}</TableCell>
+              <TableCell className='text-left'>{user.email}</TableCell>
+              <TableCell className='text-center'>
+                {user.isAdmin ? 'Yes' : 'No'}
+              </TableCell>
+              <TableCell className='flex gap-4 justify-center'>
+                <Link
+                  href='#'
+                  className='bg-green-600 text-white px-4 py-1 rounded-sm'
+                >
+                  Edit
+                </Link>
+                <Link
+                  href='#'
+                  className='bg-red-600 text-white px-4 py-1 rounded-sm'
+                >
+                  Delete
+                </Link>
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </div>
   )
 }
 
-export default Users
+export default Dashboard
