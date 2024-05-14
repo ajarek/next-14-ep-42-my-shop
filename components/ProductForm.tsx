@@ -4,7 +4,7 @@ import { useRef } from 'react'
 import { Input } from './ui/input'
 import { Button } from './ui/button'
 import { Label } from '@/components/ui/label'
-import { createRecord } from '@/lib/action'
+import { createProduct } from '@/lib/action'
 import {
   Select,
   SelectContent,
@@ -21,7 +21,7 @@ const ProductForm = () => {
       <form
         ref={ref}
         action={async (formData) => {
-          await createRecord(formData)
+          await createProduct(formData)
           ref.current?.reset()
         }}
         className='w-full flex flex-col gap-4 '
@@ -53,6 +53,15 @@ const ProductForm = () => {
             required
             className=''
             step='0.01'
+          />
+        </div>
+        <div className='flex flex-col gap-4'>
+          <Label htmlFor='price'>Image</Label>
+          <Input
+            type='text'
+            name='img'
+            required
+            
           />
         </div>
         <div className='flex flex-col gap-4'>

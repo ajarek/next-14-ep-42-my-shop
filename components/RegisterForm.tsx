@@ -50,7 +50,7 @@ const RegisterForm = () => {
         />
       </div>
       <form
-        className='w-80  flex flex-col gap-4 p-6 text-black '
+        className='w-80  flex flex-col gap-4 p-6  text-primary' 
         onSubmit={handleSubmit}
       >
         <Input

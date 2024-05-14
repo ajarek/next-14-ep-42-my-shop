@@ -1,10 +1,9 @@
 'use server'
 
 import connectToDb from './connectToDb'
-import { User, Record } from './models'
+import { User, Product } from './models'
 import { revalidatePath } from 'next/cache'
 import bcrypt from 'bcryptjs'
-import { auth } from '@/app/api/auth/auth'
 import { redirect } from 'next/navigation'
 
 export const addUser = async (formData: User) => {
@@ -28,21 +27,22 @@ export const addUser = async (formData: User) => {
 }
 
 
-export const createRecord = async (formData: FormData) => {
-  const session = await auth()
+export const createProduct = async (formData: FormData) => {
+ 
   const rawFormData = {
+    title: formData.get('title'),
     description: formData.get('description'),
-    amount: formData.get('amount'),
+    price: formData.get('price'),
     category: formData.get('category'),
-    payment: formData.get('payment'),
-    userId: session?.user?.email,
+    img: formData.get('img'),
+    
   }
-
+  console.log('rawFormData' + rawFormData)
   try {
     await connectToDb()
-    const newRecord = new Record(rawFormData)
-    await newRecord.save()
-    console.log('saved' + newRecord)
+    const newProduct = new Product(rawFormData)
+    await newProduct.save()
+    console.log('saved' + newProduct)
     revalidatePath('/dashboard')
   } catch (err) {
     console.log(err)
@@ -55,7 +55,7 @@ export const deleteItem = async (formData: FormData) => {
 
   try {
     await connectToDb()
-    await Record.findOneAndDelete({ _id: id })
+    await Product.findOneAndDelete({ _id: id })
     revalidatePath('/dashboard/data-sheet')
     console.log({ message: `Deleted record ${id}` })
     return { message: `Deleted record ${id}` }
@@ -65,7 +65,7 @@ export const deleteItem = async (formData: FormData) => {
 }
 
 
-export const updateRecord = async (formData: FormData) => {
+export const updateProduct = async (formData: FormData) => {
   const id = formData.get('_id')
   const description = formData.get('description')
   const amount = formData.get('amount')
@@ -74,7 +74,7 @@ export const updateRecord = async (formData: FormData) => {
 
   try {
     await connectToDb()
-    await Record.findOneAndUpdate(
+    await Product.findOneAndUpdate(
       { _id: id },
       {
         description: description,

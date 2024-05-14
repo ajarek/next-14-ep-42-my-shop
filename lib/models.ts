@@ -7,13 +7,13 @@ export type User = {
   img: string
   isAdmin: boolean
 }
-export type Record = {
+export type Product = {
   _id: string
+  title:string
   description: string
-  amount: number
+  price: number
   category: string
-  payment: string
-  userId:string
+  img:string
   createdAt: Date
 }
 
@@ -28,16 +28,15 @@ const userSchema = new mongoose.Schema(
   { timestamps: true }
 )
 
-const recordSchema =new mongoose.Schema({
+const productSchema =new mongoose.Schema({
+  title: { type: String, required: true },
   description: { type: String, required: true },
-  amount: { type: Number, required: true },
+  price: { type: Number, required: true },
   category: { type: String, required: true },
-  payment: { type: String, required: true },
-  userId: { type: String, required: true },
+  img: { type: String, required: true },
 },
   { timestamps: true }
 )
 
-
 export const User = mongoose.models?.User || mongoose.model('User', userSchema)
-export const Record = mongoose.models?.Record || mongoose.model('Record', recordSchema)
+export const Product = mongoose.models?.Product || mongoose.model('Product', productSchema)

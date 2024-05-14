@@ -18,8 +18,12 @@ const Aside = () => {
       <Link href='/dashboard' className={`flex items-center hover:bg-primary hover:text-primary-foreground hover:rounded-sm  rounded-sm  py-1 px-1 transition ${
           pathname === '/dashboard' ? 'active ' : 'px-1'
         }`}>Get Product</Link>
-      <Link href=''>Get User</Link>
-      <Link href=''>Analize</Link>
+      <Link href='dashboard/users' className={`flex items-center hover:bg-primary hover:text-primary-foreground hover:rounded-sm  rounded-sm  py-1 px-1 transition ${
+          pathname === '/dashboard/users' ? 'active ' : 'px-1'
+        }`}>Get User</Link>
+      <Link href='analize' className={`flex items-center hover:bg-primary hover:text-primary-foreground hover:rounded-sm  rounded-sm  py-1 px-1 transition ${
+          pathname === '/dashboard/analize' ? 'active ' : 'px-1'
+        }`}>Analize</Link>
     </aside>
   )
 }
