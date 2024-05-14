@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation'
 const Aside = () => {
   const pathname = usePathname()
   return (
-    <aside className='w-56 h-full flex flex-col gap-6  '>
+    <aside className='w-56 min-h-[calc(100vh-64px)] flex flex-col gap-6 border-r-2 pr-8 shadow-lg '>
       <h1 className='text-2xl'>Menu</h1>
       <Link
         href='/dashboard/added-product'
