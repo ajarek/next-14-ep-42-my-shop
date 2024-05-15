@@ -50,44 +50,46 @@ export const createProduct = async (formData: FormData) => {
 }
 
 
-export const deleteItem = async (formData: FormData) => {
+export const deleteProduct = async (formData: FormData) => {
   const id = formData.get('_id')
 
   try {
     await connectToDb()
     await Product.findOneAndDelete({ _id: id })
-    revalidatePath('/dashboard/data-sheet')
-    console.log({ message: `Deleted record ${id}` })
-    return { message: `Deleted record ${id}` }
+    revalidatePath('/dashboard')
+    console.log({ message: `Deleted product ${id}` })
+    return { message: `Deleted product ${id}` }
   } catch (err) {
-    return { message: 'Failed to delete record' }
+    return { message: 'Failed to delete product' }
   }
 }
 
 
 export const updateProduct = async (formData: FormData) => {
   const id = formData.get('_id')
+  const title = formData.get('title')
   const description = formData.get('description')
-  const amount = formData.get('amount')
+  const price = formData.get('price')
+  const img = formData.get('img')
   const category = formData.get('category')
-  const payment = formData.get('payment')
-
+  
   try {
     await connectToDb()
     await Product.findOneAndUpdate(
       { _id: id },
       {
+        title: title,
         description: description,
-        amount: amount,
+        price: price,
         category: category,
-        payment: payment,
+        img: img,
       }
     )
     revalidatePath(`/dashboard`)
-    return { message: `Updated record ${id}` }
+    return { message: `Updated product ${id}` }
   } catch (err) {
     return { message: 'Failed to update to db' }
   } finally {
-    redirect('/dashboard/data-sheet')
+    redirect('/dashboard')
   }
 }
