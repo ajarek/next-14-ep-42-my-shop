@@ -1,15 +1,15 @@
 'use client'
 
 import { Button } from '@/components/ui/button'
-import { deleteProduct } from '@/lib/action'
 
 
-export function DeleteProduct({ _id }: { _id: string }) {
+
+export function DeleteProduct({ _id, deleteItem }: { _id: string, deleteItem: Function }) {
   return (
     <>
       <form
         action={async (formData) => {
-          const res = await deleteProduct(formData)
+          const res = await deleteItem(formData)
         }}
       >
         <input

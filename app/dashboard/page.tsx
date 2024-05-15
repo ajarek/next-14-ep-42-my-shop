@@ -14,6 +14,7 @@ import {
 import Image from 'next/image'
 import Link from 'next/link'
 import { DeleteProduct } from '@/components/DeleteProduct'
+import { deleteProduct } from '@/lib/action'
 
 const Dashboard = async () => {
   const session = await auth()
@@ -59,7 +60,7 @@ const Dashboard = async () => {
                 >
                   Edit
                 </Link>
-                <DeleteProduct _id={(product._id).toString()} />
+                <DeleteProduct _id={(product._id).toString()} deleteItem={deleteProduct}  />
               </TableCell>
             </TableRow>
           ))}

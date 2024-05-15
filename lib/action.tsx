@@ -26,6 +26,47 @@ export const addUser = async (formData: User) => {
   }
 }
 
+export const deleteUser = async (formData: FormData) => {
+  const id = formData.get('_id')
+
+  try {
+    await connectToDb()
+    await User.findOneAndDelete({ _id: id })
+    revalidatePath('/dashboard')
+    console.log({ message: `Deleted user ${id}` })
+    return { message: `Deleted user ${id}` }
+  } catch (err) {
+    return { message: 'Failed to delete user' }
+  }
+}
+
+export const updateUser = async (formData: FormData) => {
+  const id = formData.get('_id')
+  const username = formData.get('username')
+  const email = formData.get('email')
+  const img = formData.get('img')
+  const isAdmin = formData.get('isAdmin')
+  console.log(id,username,email,img,isAdmin);
+  
+  try {
+    await connectToDb()
+    await Product.findOneAndUpdate(
+      { _id: id },
+      {
+        username:username,
+        email:email,
+        img:img,
+        isAdmin:isAdmin==='true'?true:false
+      }
+    )
+    revalidatePath(`/dashboard/users`)
+    return { message: `Updated user ${id}` }
+  } catch (err) {
+    return { message: 'Failed to update to db' }
+  } finally {
+    redirect('/dashboard/users')
+  }
+}
 
 export const createProduct = async (formData: FormData) => {
  
@@ -48,6 +89,7 @@ export const createProduct = async (formData: FormData) => {
     console.log(err)
   }
 }
+
 
 
 export const deleteProduct = async (formData: FormData) => {

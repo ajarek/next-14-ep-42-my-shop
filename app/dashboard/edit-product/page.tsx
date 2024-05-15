@@ -26,7 +26,7 @@ const ProductUpdateForm = ({searchParams}: {  searchParams: {
   const {id, title, description, price, category, img} = searchParams
   return (
     <div className=' w-full flex flex-col  justify-center items-center max-sm:justify-start  gap-4  '>
-      <h1 className='text-2xl'>Add Product</h1>
+      <h1 className='text-2xl'>Update Product</h1>
       <form
         ref={ref}
         action={async (formData) => {
@@ -103,7 +103,7 @@ const ProductUpdateForm = ({searchParams}: {  searchParams: {
           type='submit'
           className=''
         >
-          Add Record
+          Update Product
         </Button>
       </form>
     </div>

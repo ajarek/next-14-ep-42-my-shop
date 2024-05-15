@@ -13,6 +13,9 @@ import {
 } from '@/components/ui/table'
 import Image from 'next/image'
 import Link from 'next/link'
+import { DeleteProduct } from '@/components/DeleteProduct'
+import { deleteUser } from '@/lib/action'
+
 
 const Dashboard = async () => {
   const session = await auth()
@@ -54,17 +57,12 @@ const Dashboard = async () => {
               </TableCell>
               <TableCell className='flex gap-4 justify-center'>
                 <Link
-                  href='#'
-                  className='bg-green-600 text-white px-4 py-1 rounded-sm'
+                   href={`/dashboard/edit-user?id=${(user._id).toString()}&username=${user.username}&email=${user.email}&img=${user.img}&isAdmin=${user.isAdmin}`}
+                  className='flex items-center bg-green-600 text-white h-8  px-4 rounded-sm hover:bg-green-500 transition-colors'
                 >
                   Edit
                 </Link>
-                <Link
-                  href='#'
-                  className='bg-red-600 text-white px-4 py-1 rounded-sm'
-                >
-                  Delete
-                </Link>
+                <DeleteProduct _id={(user._id).toString()} deleteItem={deleteUser}  />
               </TableCell>
             </TableRow>
           ))}
