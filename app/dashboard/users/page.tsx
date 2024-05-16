@@ -23,7 +23,7 @@ const Dashboard = async () => {
     redirect('/')
   }
   await connectToDb()
-  const users = await User.find({})
+  const users = await User.find({}).sort({ createdAt: -1 })
   return (
     <div className='w-full flex flex-col gap-4  '>
       <h1 className='text-2xl'>Get users</h1>
