@@ -11,7 +11,7 @@ const UserUpdateForm = ({
   searchParams,
 }: {
   searchParams: {
-    id: string | number
+    _id: string | number
     username: string
     email: string
     img: string
@@ -19,7 +19,7 @@ const UserUpdateForm = ({
   }
 }) => {
   const ref = useRef<HTMLFormElement>(null)
-  const { id, username, email, img, isAdmin } = searchParams
+  const { _id, username, email, img, isAdmin } = searchParams
  
   return (
     <div className=' w-full flex flex-col  justify-center items-center max-sm:justify-start  gap-4  '>
@@ -35,7 +35,7 @@ const UserUpdateForm = ({
         <input
           type='hidden'
           name='_id'
-          value={id}
+          value={_id}
         />
         <div className='flex flex-col gap-4'>
           <Label htmlFor='username'>Username</Label>

@@ -4,7 +4,9 @@ import ProductForm from '@/components/ProductForm'
 
 const AddedProduct =async () => {
   const session = await auth()
-  if (!session) {
+  const { user } = (session as any) || {}
+
+  if (!user?.admin) {
     redirect('/')
   }
   return (

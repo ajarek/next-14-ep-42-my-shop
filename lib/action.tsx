@@ -41,26 +41,26 @@ export const deleteUser = async (formData: FormData) => {
 }
 
 export const updateUser = async (formData: FormData) => {
-  const id = formData.get('_id')
+  const _id = formData.get('_id')
   const username = formData.get('username')
   const email = formData.get('email')
   const img = formData.get('img')
   const isAdmin = formData.get('isAdmin')
-  console.log(id,username,email,img,isAdmin);
-  
+
   try {
     await connectToDb()
-    await Product.findOneAndUpdate(
-      { _id: id },
+    await User.findOneAndUpdate(
+      { _id: _id },
       {
-        username:username,
-        email:email,
-        img:img,
-        isAdmin:isAdmin==='true'?true:false
+        username: username,
+        email: email,
+        img: img,
+        isAdmin: isAdmin === 'true' ? Boolean(true) : Boolean(false),
       }
     )
     revalidatePath(`/dashboard/users`)
-    return { message: `Updated user ${id}` }
+
+    return { message: `Updated user ${_id}` }
   } catch (err) {
     return { message: 'Failed to update to db' }
   } finally {
@@ -69,14 +69,12 @@ export const updateUser = async (formData: FormData) => {
 }
 
 export const createProduct = async (formData: FormData) => {
- 
   const rawFormData = {
     title: formData.get('title'),
     description: formData.get('description'),
     price: formData.get('price'),
     category: formData.get('category'),
     img: formData.get('img'),
-    
   }
   console.log('rawFormData' + rawFormData)
   try {
@@ -89,8 +87,6 @@ export const createProduct = async (formData: FormData) => {
     console.log(err)
   }
 }
-
-
 
 export const deleteProduct = async (formData: FormData) => {
   const id = formData.get('_id')
@@ -106,7 +102,6 @@ export const deleteProduct = async (formData: FormData) => {
   }
 }
 
-
 export const updateProduct = async (formData: FormData) => {
   const id = formData.get('_id')
   const title = formData.get('title')
@@ -114,7 +109,7 @@ export const updateProduct = async (formData: FormData) => {
   const price = formData.get('price')
   const img = formData.get('img')
   const category = formData.get('category')
-  
+
   try {
     await connectToDb()
     await Product.findOneAndUpdate(

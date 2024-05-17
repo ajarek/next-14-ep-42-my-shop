@@ -19,7 +19,9 @@ import { deleteUser } from '@/lib/action'
 
 const Dashboard = async () => {
   const session = await auth()
-  if (!session) {
+  const { user } = (session as any) || {}
+
+  if (!user?.admin) {
     redirect('/')
   }
   await connectToDb()
@@ -57,7 +59,7 @@ const Dashboard = async () => {
               </TableCell>
               <TableCell className='flex gap-4 justify-center'>
                 <Link
-                   href={`/dashboard/edit-user?id=${(user._id).toString()}&username=${user.username}&email=${user.email}&img=${user.img}&isAdmin=${user.isAdmin}`}
+                   href={`/dashboard/edit-user?_id=${(user._id).toString()}&username=${user.username}&email=${user.email}&img=${user.img}&isAdmin=${user.isAdmin}`}
                   className='flex items-center bg-green-600 text-white h-8  px-4 rounded-sm hover:bg-green-500 transition-colors'
                 >
                   Edit

@@ -1,6 +1,6 @@
 import { auth } from '@/app/api/auth/auth'
 import connectToDb from '@/lib/connectToDb'
-import { Product,User } from '@/lib/models'
+import { Product, User } from '@/lib/models'
 import { redirect } from 'next/navigation'
 import {
   Table,
@@ -17,10 +17,9 @@ import { DeleteProduct } from '@/components/DeleteProduct'
 import { deleteProduct } from '@/lib/action'
 
 const Dashboard = async () => {
-  const session  = await auth()
-  const {user} =session as any || {}
-  console.log(user?.admin)
-  
+  const session = await auth()
+  const { user } = (session as any) || {}
+
   if (!user?.admin) {
     redirect('/')
   }

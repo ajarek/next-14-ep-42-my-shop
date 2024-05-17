@@ -3,7 +3,9 @@ import { redirect } from 'next/navigation'
 
 const Analize = async() => {
   const session = await auth()
-  if (!session) {
+  const { user } = (session as any) || {}
+
+  if (!user?.admin) {
     redirect('/')
   }
   return (
