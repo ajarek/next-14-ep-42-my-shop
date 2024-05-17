@@ -62,7 +62,6 @@ const UserUpdateForm = ({
           <Input
             type='text'
             name='img'
-            required
             className=''
             defaultValue={img}
           />
