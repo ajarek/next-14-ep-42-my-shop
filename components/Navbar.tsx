@@ -11,7 +11,7 @@ const Navbar = async () => {
 
   
   return (
-    <div className='h-16 w-full  flex justify-between items-center gap-4 px-8 max-sm:px-2  '>
+    <div className='h-16 w-full  flex justify-between items-center gap-4 px-8 max-sm:px-2 border-b '>
       <div className='flex'>
         <Links />
         {user?.admin && (
