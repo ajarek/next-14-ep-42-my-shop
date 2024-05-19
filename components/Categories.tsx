@@ -13,7 +13,7 @@ import React from 'react'
 const Categories = () => {
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger className='max-lg:w-full hover:bg-primary hover:text-primary-foreground max-lg:text-left hover:rounded-sm  rounded-sm px-4 py-1 transition '>
+      <DropdownMenuTrigger className='w-fit max-lg:w-full hover:bg-primary hover:text-primary-foreground max-lg:text-left hover:rounded-sm  rounded-sm px-4 py-1 transition '>
         Categories
       </DropdownMenuTrigger>
       <DropdownMenuContent>

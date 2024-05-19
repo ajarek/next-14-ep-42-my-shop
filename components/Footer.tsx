@@ -6,11 +6,11 @@ import Categories from './Categories'
 const Footer = () => {
   const pathname = usePathname()
   return (
-    <footer className=' p-10  flex flex-col justify-start items-center gap-4 border-t-2   '>
-      <nav className='w-3/4 grid grid-cols-3 gap-4 max-sm:w-full'>
+    <footer className='w-full p-10  flex flex-col justify-start items-center gap-4 border-t-2   '>
+      <nav className='w-1/2 grid grid-cols-3 gap-4 max-sm:w-full place-items-center'>
         <Link
           href='/'
-          className={`flex items-center justify-center gap-4 hover:bg-primary  hover:text-primary-foreground hover:rounded-sm  rounded-sm px-4 py-1 transition ${
+          className={`w-fit flex items-center justify-center  hover:bg-primary  hover:text-primary-foreground hover:rounded-sm  rounded-sm px-4 py-1 transition ${
             pathname === '/' ? 'active ' : 'px-4'
           }`}
         >
@@ -18,7 +18,7 @@ const Footer = () => {
         </Link>
         <Link
           href='/products'
-          className={`flex items-center justify-center gap-4 hover:bg-primary hover:text-primary-foreground hover:rounded-sm  rounded-sm px-4 py-1 transition ${
+          className={`w-fit flex items-center justify-center  hover:bg-primary hover:text-primary-foreground hover:rounded-sm  rounded-sm px-4 py-1 transition ${
             pathname === '/products' ? 'active ' : 'px-4'
           }`}
         >
