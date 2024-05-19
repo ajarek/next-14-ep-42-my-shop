@@ -18,6 +18,7 @@ const Products = async() => {
             img={product.img}
             title={product.title}
             price={product.price}
+            id={product._id.toString()}
           />
         ))}
       </div>
