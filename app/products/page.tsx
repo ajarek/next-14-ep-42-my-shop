@@ -3,8 +3,7 @@ import { Product, User } from '@/lib/models'
 import Footer from '@/components/Footer'
 import CardProduct from '@/components/CardProduct'
 
-
-const Products = async() => {
+const Products = async () => {
   await connectToDb()
   const products = (await Product.find({}).sort({ title: 1 })) as Product[]
   return (
@@ -18,11 +17,14 @@ const Products = async() => {
             img={product.img}
             title={product.title}
             price={product.price}
-            id={product._id.toString()}
+            _id={product._id.toString()}
+            description={product.description}
+            category={product.category}
+            createdAt={product.createdAt}
           />
         ))}
       </div>
-    
+
       <Footer />
     </div>
   )
