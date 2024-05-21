@@ -8,13 +8,14 @@ export type User = {
   isAdmin: boolean
 }
 export type Product = {
-  _id: string
+  _id?: string
   title:string
-  description: string
+  description?: string
   price: number
-  category: string
+  category?: string
   img:string
-  createdAt: Date
+  createdAt?: Date
+  quantity?:number
 }
 
 const userSchema = new mongoose.Schema(

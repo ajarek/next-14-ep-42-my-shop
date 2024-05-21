@@ -64,7 +64,7 @@ const Footer = () => {
         </div>
       </nav>
       <aside>
-        <p className='max-sm:text-center'>Copyright © 2024 - All right reserved by ACME Industries Ltd</p>
+        <p className='max-sm:text-center'>Copyright © 2024 - All right reserved by @JAREK Industries Ltd</p>
       </aside>
     </footer>
   )
