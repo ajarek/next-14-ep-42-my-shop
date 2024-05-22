@@ -14,7 +14,12 @@ import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 
 const Cart = () => {
-  const { cart } = useAppContext()
+  const { cart, setCart } = useAppContext()
+  const deleteItem=(id:number)=>{
+    const filteredCart = cart.filter((item: any) => item._id!==id)
+    console.log(filteredCart)
+    setCart(filteredCart)
+  }
   return (
     <div className='min-h-[calc(100vh-64px)] flex flex-col justify-between px-24'>
       {cart.length === 0 ? (
@@ -65,7 +70,7 @@ const Cart = () => {
                     {Number(ct.price * ct.quantity).toFixed(2)}
                   </TableCell>
                   <TableCell className='text-center'>
-                    <Button>❌</Button>
+                    <Button onClick={()=>deleteItem(ct._id)}>❌</Button>
                   </TableCell>
                 </TableRow>
               ))}

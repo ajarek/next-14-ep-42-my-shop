@@ -13,6 +13,7 @@ const ProductId = ({searchParams}:{searchParams:Product}) => {
 
   const addToCart=()=>{
     setCart((prevCart) => [...prevCart, {
+      _id:_id,
       img: img,
       title: title,
       price: price,

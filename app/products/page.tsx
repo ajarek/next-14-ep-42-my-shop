@@ -17,7 +17,7 @@ const Products = async () => {
             img={product.img}
             title={product.title}
             price={product.price}
-            _id={product._id.toString()}
+            _id={product._id}
             description={product.description}
             category={product.category}
             createdAt={product.createdAt}
