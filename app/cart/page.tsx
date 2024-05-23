@@ -12,11 +12,12 @@ import {
 } from '@/components/ui/table'
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
+import Link from 'next/link'
 
 const Cart = () => {
   const { cart, setCart } = useAppContext()
-  const deleteItem=(id:number)=>{
-    const filteredCart = cart.filter((item: any) => item._id!==id)
+  const deleteItem = (id: number) => {
+    const filteredCart = cart.filter((item: any) => item._id !== id)
     console.log(filteredCart)
     setCart(filteredCart)
   }
@@ -28,18 +29,6 @@ const Cart = () => {
         <div>
           <h1 className='text-2xl'>Cart</h1>
           <Table>
-            <TableCaption>
-              Together to pay:{' '}
-              <span className='text-primary text-xl font-semibold'>
-                {cart
-                  .reduce(
-                    (acc, curr: any) => acc + curr.price * curr.quantity,
-                    0
-                  )
-                  .toFixed(2)}
-                $
-              </span>{' '}
-            </TableCaption>
             <TableHeader>
               <TableRow>
                 <TableHead className='w-[100px]'>Image</TableHead>
@@ -70,12 +59,22 @@ const Cart = () => {
                     {Number(ct.price * ct.quantity).toFixed(2)}
                   </TableCell>
                   <TableCell className='text-center'>
-                    <Button onClick={()=>deleteItem(ct._id)}>❌</Button>
+                    <Button onClick={() => deleteItem(ct._id)}>❌</Button>
                   </TableCell>
                 </TableRow>
               ))}
             </TableBody>
           </Table>
+          <div className='flex justify-end items-center px-4 my-4 gap-8'>
+            <div className='text-primary text-xl font-semibold '>
+              Total:{' '} 
+              {cart
+                .reduce((acc, curr: any) => acc + curr.price * curr.quantity, 0)
+                .toFixed(2)}
+              $
+            </div>
+            <Link href={`/checkout?total=${cart.reduce((acc, curr: any) => acc + curr.price * curr.quantity, 0).toFixed(2)}`} className='w-fit flex items-center gap-4 bg-primary text-primary-foreground hover:bg-primary/80  rounded-sm px-2 py-1 transition'>Checkout</Link>
+          </div>
         </div>
       )}
       <Footer />
