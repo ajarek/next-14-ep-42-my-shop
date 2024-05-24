@@ -28,7 +28,6 @@ const RegisterForm = () => {
       password,
       img,
       isAdmin,
-      
     }
 
     try {
@@ -43,17 +42,17 @@ const RegisterForm = () => {
     <div className='bg-[#000] text-white  p-4'>
       <div className='flex justify-center p-2'>
         <Link href='/'>
-        <Image
-          src='/images/store.svg'
-          alt='logo'
-          width={60}
-          height={60}
-          className='w-[40px] h-[40px] '
-        />
+          <Image
+            src='/images/store.svg'
+            alt='logo'
+            width={60}
+            height={60}
+            className='w-[40px] h-[40px] '
+          />
         </Link>
       </div>
       <form
-        className='w-80  flex flex-col gap-4 p-6  text-primary' 
+        className='w-80  flex flex-col gap-4 p-6  text-primary'
         onSubmit={handleSubmit}
       >
         <Input

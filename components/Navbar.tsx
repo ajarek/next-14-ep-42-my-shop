@@ -9,7 +9,6 @@ const Navbar = async () => {
   const session = await auth()
   const { user } = (session as any) || {}
 
-  
   return (
     <div className='h-16 w-full  flex justify-between items-center gap-4 max-lg:px-8 max-sm:px-2 border-b  '>
       <div className='flex'>

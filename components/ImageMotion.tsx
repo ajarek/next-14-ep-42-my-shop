@@ -10,15 +10,15 @@ const ImageMotion = () => {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.7 }}
       >
-    <Image
-      src='/images/header.jpg'
-      width={600}
-      height={400}
-      alt='logo'
-      className='rounded-sm shadow-lg'
-    />
-    </motion.div>
-  </div>
+        <Image
+          src='/images/header.jpg'
+          width={600}
+          height={400}
+          alt='logo'
+          className='rounded-sm shadow-lg'
+        />
+      </motion.div>
+    </div>
   )
 }
 

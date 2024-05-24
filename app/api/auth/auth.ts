@@ -39,7 +39,7 @@ export const {
               user.password
             )
             if (isPasswordCorrect) {
-              return user 
+              return user
             }
           }
         } catch (err: any) {
@@ -48,36 +48,33 @@ export const {
       },
     }),
   ],
- 
 
   callbacks: {
-   async jwt({token, user, session}:any) {
-     
-     if(user){
-      return{
-        ...token,
-        id:user.id,
-        name:user.username,
-        admin:user.isAdmin,
-        image:user.img
+    async jwt({ token, user, session }: any) {
+      if (user) {
+        return {
+          ...token,
+          id: user.id,
+          name: user.username,
+          admin: user.isAdmin,
+          image: user.img,
+        }
       }
-     }
-     return token
-   },
-   async session({session, token, user}:any) {
-     return{
-      ...session,
-      user:{
-        ...session.user,
-        id:token.id,
-        name:token.name,
-        admin:token.admin,
-        image:token.image
+      return token
+    },
+    async session({ session, token, user }: any) {
+      return {
+        ...session,
+        user: {
+          ...session.user,
+          id: token.id,
+          name: token.name,
+          admin: token.admin,
+          image: token.image,
+        },
       }
-     }
-    
-   },
-   
+    },
+
     async redirect({ url, baseUrl }) {
       return `${baseUrl}/dashboard`
     },
@@ -85,5 +82,5 @@ export const {
   secret: process.env.AUTH_SECRET,
   session: {
     strategy: 'jwt',
-  }
+  },
 })

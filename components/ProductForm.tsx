@@ -26,14 +26,13 @@ const ProductForm = () => {
         }}
         className='w-full flex flex-col gap-4 '
       >
-         <div className='flex flex-col gap-4'>
+        <div className='flex flex-col gap-4'>
           <Label htmlFor='title'>Title</Label>
           <Input
             type='text'
             name='title'
             required
             className=''
-            
           />
         </div>
         <div className='flex flex-col gap-4'>
@@ -61,7 +60,6 @@ const ProductForm = () => {
             type='text'
             name='img'
             required
-            
           />
         </div>
         <div className='flex flex-col gap-4'>
@@ -82,7 +80,7 @@ const ProductForm = () => {
             </SelectContent>
           </Select>
         </div>
-        
+
         <Button
           type='submit'
           className=''

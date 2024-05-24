@@ -27,7 +27,7 @@ const PaymentForm = ({ total }: { total: number }) => {
     e.preventDefault()
 
     notifySuccess()
-     setCart([])
+    setCart([])
     setTimeout(() => {
       router.push('/')
     }, 3000)

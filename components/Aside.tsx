@@ -15,18 +15,38 @@ const Aside = () => {
       >
         Add Product
       </Link>
-      <Link href='/dashboard' className={`flex items-center hover:bg-primary hover:text-primary-foreground hover:rounded-sm  rounded-sm  py-1 px-1 transition ${
+      <Link
+        href='/dashboard'
+        className={`flex items-center hover:bg-primary hover:text-primary-foreground hover:rounded-sm  rounded-sm  py-1 px-1 transition ${
           pathname === '/dashboard' ? 'active ' : 'px-1'
-        }`}>Get Product</Link>
-      <Link href='/dashboard/add-user' className={`flex items-center hover:bg-primary hover:text-primary-foreground hover:rounded-sm  rounded-sm  py-1 px-1 transition ${
+        }`}
+      >
+        Get Product
+      </Link>
+      <Link
+        href='/dashboard/add-user'
+        className={`flex items-center hover:bg-primary hover:text-primary-foreground hover:rounded-sm  rounded-sm  py-1 px-1 transition ${
           pathname === '/dashboard/add-user' ? 'active ' : 'px-1'
-        }`}>Add User</Link>
-      <Link href='/dashboard/users' className={`flex items-center hover:bg-primary hover:text-primary-foreground hover:rounded-sm  rounded-sm  py-1 px-1 transition ${
+        }`}
+      >
+        Add User
+      </Link>
+      <Link
+        href='/dashboard/users'
+        className={`flex items-center hover:bg-primary hover:text-primary-foreground hover:rounded-sm  rounded-sm  py-1 px-1 transition ${
           pathname === '/dashboard/users' ? 'active ' : 'px-1'
-        }`}>Get User</Link>
-      <Link href='/dashboard/analize' className={`flex items-center hover:bg-primary hover:text-primary-foreground hover:rounded-sm  rounded-sm  py-1 px-1 transition ${
+        }`}
+      >
+        Get User
+      </Link>
+      <Link
+        href='/dashboard/analize'
+        className={`flex items-center hover:bg-primary hover:text-primary-foreground hover:rounded-sm  rounded-sm  py-1 px-1 transition ${
           pathname === '/dashboard/analize' ? 'active ' : 'px-1'
-        }`}>Analize</Link>
+        }`}
+      >
+        Analize
+      </Link>
     </aside>
   )
 }

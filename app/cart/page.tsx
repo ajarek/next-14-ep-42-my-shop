@@ -33,7 +33,9 @@ const Cart = () => {
               <TableRow>
                 <TableHead className='max-sm:hidden'>Image</TableHead>
                 <TableHead>Title</TableHead>
-                <TableHead className='text-right max-sm:hidden'>Price $</TableHead>
+                <TableHead className='text-right max-sm:hidden'>
+                  Price $
+                </TableHead>
                 <TableHead className='text-center'>Quantity</TableHead>
                 <TableHead className='text-center'>Together</TableHead>
                 <TableHead className='text-center'>Action</TableHead>
@@ -50,7 +52,7 @@ const Cart = () => {
                       alt='logo'
                     />
                   </TableCell>
-                  <TableCell >{ct.title}</TableCell>
+                  <TableCell>{ct.title}</TableCell>
                   <TableCell className='text-right max-sm:hidden'>
                     {Number(ct.price).toFixed(2)}
                   </TableCell>
@@ -59,7 +61,12 @@ const Cart = () => {
                     {Number(ct.price * ct.quantity).toFixed(2)}
                   </TableCell>
                   <TableCell className='text-center'>
-                    <Button size={'sm'} onClick={() => deleteItem(ct._id)}>❌</Button>
+                    <Button
+                      size={'sm'}
+                      onClick={() => deleteItem(ct._id)}
+                    >
+                      ❌
+                    </Button>
                   </TableCell>
                 </TableRow>
               ))}
@@ -67,13 +74,20 @@ const Cart = () => {
           </Table>
           <div className='flex justify-end items-center px-4 my-4 gap-8'>
             <div className='text-primary text-xl font-semibold '>
-              Total:{' '} 
+              Total:{' '}
               {cart
                 .reduce((acc, curr: any) => acc + curr.price * curr.quantity, 0)
                 .toFixed(2)}
               $
             </div>
-            <Link href={`/checkout?total=${cart.reduce((acc, curr: any) => acc + curr.price * curr.quantity, 0).toFixed(2)}`} className='w-fit flex items-center gap-4 bg-primary text-primary-foreground hover:bg-primary/80  rounded-sm px-2 py-1 transition'>Checkout</Link>
+            <Link
+              href={`/checkout?total=${cart
+                .reduce((acc, curr: any) => acc + curr.price * curr.quantity, 0)
+                .toFixed(2)}`}
+              className='w-fit flex items-center gap-4 bg-primary text-primary-foreground hover:bg-primary/80  rounded-sm px-2 py-1 transition'
+            >
+              Checkout
+            </Link>
           </div>
         </div>
       )}

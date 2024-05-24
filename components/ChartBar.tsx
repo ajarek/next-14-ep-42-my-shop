@@ -8,7 +8,7 @@ import {
   CartesianGrid,
   Tooltip,
   Legend,
-  ResponsiveContainer
+  ResponsiveContainer,
 } from 'recharts'
 
 export default function ChartBar({ data }: any) {
@@ -20,33 +20,33 @@ export default function ChartBar({ data }: any) {
     <>
       {domLoaded && (
         <ResponsiveContainer height={320}>
-        <BarChart
-          width={500}
-          height={300}
-          data={data}
-          margin={{
-            top: 5,
-            right: 30,
-            left: 20,
-            bottom: 5,
-          }}
-          barSize={20}
-        >
-          <XAxis
-            dataKey='name'
-            scale='point'
-            padding={{ left: 10, right: 10 }}
-          />
-          <YAxis />
-          <Tooltip />
-          <Legend />
-          <CartesianGrid strokeDasharray='3 3' />
-          <Bar
-            dataKey='Category'
-            fill='#00C49F'
-            background={{ fill: '#eee' }}
-          />
-        </BarChart>
+          <BarChart
+            width={500}
+            height={300}
+            data={data}
+            margin={{
+              top: 5,
+              right: 30,
+              left: 20,
+              bottom: 5,
+            }}
+            barSize={20}
+          >
+            <XAxis
+              dataKey='name'
+              scale='point'
+              padding={{ left: 10, right: 10 }}
+            />
+            <YAxis />
+            <Tooltip />
+            <Legend />
+            <CartesianGrid strokeDasharray='3 3' />
+            <Bar
+              dataKey='Category'
+              fill='#00C49F'
+              background={{ fill: '#eee' }}
+            />
+          </BarChart>
         </ResponsiveContainer>
       )}
     </>
