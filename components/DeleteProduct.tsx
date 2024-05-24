@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button'
 
 
 
-export function DeleteProduct({ _id, deleteItem }: { _id: string, deleteItem: Function }) {
+export function DeleteProduct({ _id, deleteItem }: { _id: string|number, deleteItem: Function }) {
   return (
     <>
       <form
@@ -19,10 +19,10 @@ export function DeleteProduct({ _id, deleteItem }: { _id: string, deleteItem: Fu
         />
 
         <Button
-          className='bg-red-600 text-white  rounded-sm hover:bg-red-500 transition-colors'
+          className=' bg-transparent  rounded-sm hover:bg-transparent hover:scale-105  transition'
           type='submit'
           size='sm'
-        >Delete
+        >❌
         </Button>
       </form>
     </>

@@ -22,7 +22,7 @@ const Cart = () => {
     setCart(filteredCart)
   }
   return (
-    <div className='min-h-[calc(100vh-64px)] flex flex-col justify-between px-24'>
+    <div className='min-h-[calc(100vh-64px)] flex flex-col justify-between px-24 max-lg:px-4'>
       {cart.length === 0 ? (
         <h1 className='text-center text-2xl'>Cart is empty</h1>
       ) : (
@@ -31,9 +31,9 @@ const Cart = () => {
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead className='w-[100px]'>Image</TableHead>
+                <TableHead className='max-sm:hidden'>Image</TableHead>
                 <TableHead>Title</TableHead>
-                <TableHead className='text-right'>Price $</TableHead>
+                <TableHead className='text-right max-sm:hidden'>Price $</TableHead>
                 <TableHead className='text-center'>Quantity</TableHead>
                 <TableHead className='text-center'>Together</TableHead>
                 <TableHead className='text-center'>Action</TableHead>
@@ -42,7 +42,7 @@ const Cart = () => {
             <TableBody>
               {cart.map((ct: any) => (
                 <TableRow key={ct._id}>
-                  <TableCell className=''>
+                  <TableCell className='max-sm:hidden'>
                     <Image
                       src={ct.img || ''}
                       width={40}
@@ -50,8 +50,8 @@ const Cart = () => {
                       alt='logo'
                     />
                   </TableCell>
-                  <TableCell>{ct.title}</TableCell>
-                  <TableCell className='text-right'>
+                  <TableCell >{ct.title}</TableCell>
+                  <TableCell className='text-right max-sm:hidden'>
                     {Number(ct.price).toFixed(2)}
                   </TableCell>
                   <TableCell className='text-center'>{ct.quantity}</TableCell>
@@ -59,7 +59,7 @@ const Cart = () => {
                     {Number(ct.price * ct.quantity).toFixed(2)}
                   </TableCell>
                   <TableCell className='text-center'>
-                    <Button onClick={() => deleteItem(ct._id)}>❌</Button>
+                    <Button size={'sm'} onClick={() => deleteItem(ct._id)}>❌</Button>
                   </TableCell>
                 </TableRow>
               ))}

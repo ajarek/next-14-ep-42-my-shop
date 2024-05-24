@@ -6,7 +6,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 export default function Home() {
   return (
-    <main className='flex min-h-[calc(100vh-64px)] flex-col items-center justify-start px-24 py-8 gap-8'>
+    <main className='flex min-h-[calc(100vh-64px)] flex-col items-center justify-start px-24 max-lg:px-4 py-8 gap-8'>
       <div className='grid grid-cols-2 gap-4 max-lg:grid-cols-1 '>
         <div className='flex flex-col  justify-evenly px-4'>
           

@@ -25,7 +25,7 @@ const ProductUpdateForm = ({searchParams}: {  searchParams: {
   const ref = useRef<HTMLFormElement>(null)
   const {id, title, description, price, category, img} = searchParams
   return (
-    <div className=' w-full flex flex-col  justify-center items-center max-sm:justify-start  gap-4  '>
+    <div className=' w-full flex flex-col  justify-center items-center max-sm:justify-start  gap-4 pb-6 '>
       <h1 className='text-2xl'>Update Product</h1>
       <form
         ref={ref}

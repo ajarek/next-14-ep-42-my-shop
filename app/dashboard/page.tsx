@@ -32,17 +32,17 @@ const Dashboard = async () => {
         <TableCaption>List of your latest products.</TableCaption>
         <TableHeader>
           <TableRow>
-            <TableHead className='w-[100px]'>Image</TableHead>
+            <TableHead className=' max-sm:hidden'>Image</TableHead>
             <TableHead>Title</TableHead>
             <TableHead className='text-right'>Price $</TableHead>
             <TableHead className='text-center'>Category</TableHead>
-            <TableHead className='text-center'>Action</TableHead>
+            <TableHead className='text-center max-lg:w-16'>Action</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
           {products.map((product) => (
             <TableRow key={product._id}>
-              <TableCell className=''>
+              <TableCell className='max-sm:hidden'>
                 <Image
                   src={product.img || ''}
                   width={20}
@@ -55,19 +55,19 @@ const Dashboard = async () => {
                 {Number(product.price).toFixed(2)}
               </TableCell>
               <TableCell className='text-center'>{product.category}</TableCell>
-              <TableCell className='flex gap-4 justify-center items-center '>
+              <TableCell className='flex gap-4 max-lg:gap-1 justify-center items-center max-lg:flex-col max-lg:w-16'>
                 <Link
-                  href={`/dashboard/edit-product?id=${product._id.toString()}&title=${
+                  href={`/dashboard/edit-product?id=${(product._id)?.toString()}&title=${
                     product.title
                   }&description=${product.description}&price=${
                     product.price
                   }&category=${product.category}&img=${product.img}`}
-                  className='flex items-center bg-green-600 text-white h-8  px-4 rounded-sm hover:bg-green-500 transition-colors'
+                  className='flex items-center h-8  px-4 rounded-sm hover:scale-105 transition'
                 >
-                  Edit
+                  🖊️
                 </Link>
                 <DeleteProduct
-                  _id={product._id.toString()}
+                  _id={(product._id).toString()}
                   deleteItem={deleteProduct}
                 />
               </TableCell>

@@ -27,7 +27,7 @@ const CardProduct = ({
   return (
     <Card>
       <CardHeader>
-        <div className='w-[200px] h-[200px] overflow-hidden rounded-sm shadow-lg'>
+        <div className='w-[200px] h-[200px] max-sm:w-full max-sm:h-full overflow-hidden rounded-sm shadow-lg'>
           <Image
             src={img}
             width={200}

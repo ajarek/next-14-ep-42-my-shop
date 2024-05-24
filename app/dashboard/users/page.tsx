@@ -33,7 +33,7 @@ const Dashboard = async () => {
         <TableCaption>List of your latest users.</TableCaption>
         <TableHeader>
           <TableRow>
-            <TableHead className='w-[100px]'>Image</TableHead>
+            <TableHead className='max-lg:hidden'>Image</TableHead>
             <TableHead>Name</TableHead>
             <TableHead className='text-left'>Email</TableHead>
             <TableHead className='text-center'>Is Admin</TableHead>
@@ -43,7 +43,7 @@ const Dashboard = async () => {
         <TableBody>
           {users.map((user) => (
             <TableRow key={user._id}>
-              <TableCell className=''>
+              <TableCell className='max-lg:hidden'>
                 <Image
                   src={user.img || 'https://img.myloview.com/posters/default-avatar-profile-icon-vector-social-media-user-photo-700-205577532.jpg'}
                   width={30}
@@ -57,12 +57,12 @@ const Dashboard = async () => {
               <TableCell className='text-center'>
                 {user.isAdmin ? 'Yes' : 'No'}
               </TableCell>
-              <TableCell className='flex gap-4 justify-center'>
+              <TableCell className='flex gap-4 justify-center max-lg:flex-col max-lg:w-16'>
                 <Link
                    href={`/dashboard/edit-user?_id=${(user._id).toString()}&username=${user.username}&email=${user.email}&img=${user.img}&isAdmin=${user.isAdmin}`}
-                  className='flex items-center bg-green-600 text-white h-8  px-4 rounded-sm hover:bg-green-500 transition-colors'
+                  className='flex items-center  h-8  px-4 rounded-sm hover:scale-105 transition'
                 >
-                  Edit
+                 🖊️
                 </Link>
                 <DeleteProduct _id={(user._id).toString()} deleteItem={deleteUser}  />
               </TableCell>

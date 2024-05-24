@@ -7,7 +7,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className='flex min-h-[calc(100vh-64px)]  justify-start items-start  px-12  gap-16  '>
+    <div className='flex min-h-[calc(100vh-64px)]  max-lg:flex-col justify-start items-start  px-12 max-lg:px-2  gap-16  '>
       
        <Aside/>   
       {children}

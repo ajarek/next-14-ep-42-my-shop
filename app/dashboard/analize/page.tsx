@@ -33,7 +33,7 @@ const Analize = async() => {
     },
   ]
   return (
-    <div className='w-full min-h-[calc(100vh-64px)] flex flex-col justify-center items-center gap-4'>
+    <div className='w-full min-h-[calc(100vh-64px)] flex flex-col justify-center items-center gap-4 px-2 max-lg:justify-start'>
       <h1 className='text-3xl'>Sales Analysis</h1>
       <ChartBar data={data} />
     </div>

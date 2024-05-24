@@ -8,6 +8,7 @@ import {
   CartesianGrid,
   Tooltip,
   Legend,
+  ResponsiveContainer
 } from 'recharts'
 
 export default function ChartBar({ data }: any) {
@@ -18,6 +19,7 @@ export default function ChartBar({ data }: any) {
   return (
     <>
       {domLoaded && (
+        <ResponsiveContainer height={320}>
         <BarChart
           width={500}
           height={300}
@@ -45,6 +47,7 @@ export default function ChartBar({ data }: any) {
             background={{ fill: '#eee' }}
           />
         </BarChart>
+        </ResponsiveContainer>
       )}
     </>
   )

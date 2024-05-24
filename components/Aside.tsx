@@ -5,8 +5,8 @@ import { usePathname } from 'next/navigation'
 const Aside = () => {
   const pathname = usePathname()
   return (
-    <aside className='w-56 min-h-[calc(100vh-64px)] flex flex-col gap-6 border-r-2 pr-8 shadow-lg '>
-      <h1 className='text-2xl'>Menu</h1>
+    <aside className='w-56  max-lg:h-16  max-lg:w-full  flex flex-wrap flex-col max-lg:flex-row gap-6 max-lg:justify-center border-r-2 pr-8 shadow-lg '>
+      <h1 className='text-2xl max-lg:hidden'>Menu</h1>
       <Link
         href='/dashboard/add-product'
         className={`flex items-center hover:bg-primary hover:text-primary-foreground hover:rounded-sm  rounded-sm  py-1 px-1 transition ${

@@ -10,7 +10,7 @@ const AddedProduct =async () => {
     redirect('/')
   }
   return (
-    <div className='w-full'>
+    <div className='w-full pb-6'>
       <ProductForm/>
     </div>
   )

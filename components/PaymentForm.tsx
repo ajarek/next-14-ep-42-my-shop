@@ -34,7 +34,7 @@ const PaymentForm = ({ total }: { total: number }) => {
   }
 
   return (
-    <div className=' w-full min-h-[calc(100vh-80px)]  flex flex-col justify-center items-center  '>
+    <div className=' w-full min-h-[calc(100vh-80px)]  flex flex-col justify-center max-sm:justify-start p-4 items-center  '>
       <ToastContainer />
       <form
         onSubmit={handleSubmit}
