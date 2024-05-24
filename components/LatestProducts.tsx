@@ -15,7 +15,7 @@ const LatestProducts = async () => {
           img={product.img}
           title={product.title}
           price={product.price}
-          _id={product._id.toString()}
+          _id={product._id ? product._id.toString() : ''}
           description={product.description}
           category={product.category}
           createdAt={product.createdAt}
