@@ -45,7 +45,7 @@ const CardProduct = ({
       </CardContent>
       <CardFooter>
         <Link
-          href={`/productId?_id=${_id.toString()}&title=${title}&price=${price}&img=${img}&category=${category}&description=${description}&createdAt=${createdAt} `}
+          href={`/productId?_id=${_id?_id.toString():''}&title=${title}&price=${price}&img=${img}&category=${category}&description=${description}&createdAt=${createdAt} `}
           className='w-fit flex items-center gap-4 bg-primary text-primary-foreground hover:bg-primary/80  rounded-sm px-2 py-1 transition '
         >
           <Eye/> Look
