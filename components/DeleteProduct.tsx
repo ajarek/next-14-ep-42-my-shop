@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button'
 
 
 
-export function DeleteProduct({ _id, deleteItem }: { _id: string|number, deleteItem: Function }) {
+export function DeleteProduct({ _id, deleteItem }: { _id: string, deleteItem: Function }) {
   return (
     <>
       <form
